@@ -1,0 +1,62 @@
+#
+# Executes commands at the start of an interactive session
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Disable color and theme in dumb terminals.
+if [[ "$TERM" == 'dumb' ]]; then
+  zstyle ':prezto:*:*' color 'no'
+  zstyle ':prezto:module:prompt' theme 'off'
+else
+  zstyle ':prezto:*:*' color 'yes'
+  zstyle ':prezto:module:prompt' theme 'sorin'
+fi
+
+zstyle ':prezto:module:editor' dot-expansion 'yes'
+
+bundle_init=$ZSH/bundle.init
+
+update-bundles() {(
+  local bundles
+  local bundle
+  local files
+  local file
+
+  bundles=("${(@f)$(cat $ZSH/bundle.list)}")
+
+  cd $ZSH
+
+  for bundle in $bundles; do
+    if [ ! -d "$ZSH/bundles/$bundle" ]; then
+      git submodule add https://github.com/$bundle zsh/bundles/$bundle
+    fi
+  done
+
+  git submodule update --init --recursive
+  rm -f $bundle_init
+  touch $bundle_init
+
+  for bundle in $bundles; do
+    files=zsh/bundles/$bundle/*.plugin.zsh
+    for file in $~files; do
+      echo source \$ZSH/$file >> $bundle_init
+    done
+  done
+
+  echo >> $bundle_init
+
+  for bundle in $bundles; do
+    echo fpath+=\$ZSH/bundles/$bundle >> $bundle_init
+  done
+)}
+
+if [ -r "$bundle_init" ]; then
+  source $bundle_init
+fi
+
+autoload -U zcalc zsh-mime-setup
+zsh-mime-setup
+
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)
