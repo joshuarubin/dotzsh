@@ -30,7 +30,7 @@ update-bundles() {(
 
   for bundle in $bundles; do
     if [ ! -d "$ZSH/bundles/$bundle" ]; then
-      git submodule add https://github.com/$bundle bundles/$bundle
+      git submodule add git@github.com:$bundle.git bundles/$bundle
     fi
   done
 
