@@ -23,7 +23,7 @@ update-bundles() {(
       git clone --recursive git@github.com:$bundle.git "$ZSH/bundles/$bundle"
     else
       cd $ZSH/bundles/$bundle
-      git pull
+      git pull --ff --ff-only
       git submodule update --init --recursive
     fi
   done
