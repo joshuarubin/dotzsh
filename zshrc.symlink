@@ -16,7 +16,6 @@ fi
 
 zstyle ':prezto:module:editor' dot-expansion 'yes'
 
-
 zstyle ':prezto:module:syntax-highlighting' highlighters \
   'main' \
   'brackets' \
