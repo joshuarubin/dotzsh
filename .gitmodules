@@ -88,12 +88,6 @@
 [submodule "bundles/joshuarubin/zsh-typescript"]
 	path = bundles/joshuarubin/zsh-typescript
 	url = git@github.com:joshuarubin/zsh-typescript.git
-[submodule "bundles/Tarrasch/zsh-command-not-found"]
-	path = bundles/Tarrasch/zsh-command-not-found
-	url = git@github.com:Tarrasch/zsh-command-not-found.git
-[submodule "bundles/Tarrasch/zsh-mcd"]
-	path = bundles/Tarrasch/zsh-mcd
-	url = git@github.com:Tarrasch/zsh-mcd.git
 [submodule "bundles/joshuarubin/zsh-gnu-utility"]
 	path = bundles/joshuarubin/zsh-gnu-utility
 	url = git@github.com:joshuarubin/zsh-gnu-utility.git

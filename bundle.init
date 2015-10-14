@@ -28,8 +28,6 @@ source $ZSH/bundles/joshuarubin/zsh-perl/perl.plugin.zsh
 source $ZSH/bundles/joshuarubin/zsh-screen/screen.plugin.zsh
 source $ZSH/bundles/joshuarubin/zsh-dpkg/dpkg.plugin.zsh
 source $ZSH/bundles/joshuarubin/zsh-typescript/typescript.plugin.zsh
-source $ZSH/bundles/Tarrasch/zsh-command-not-found/command-not-found.plugin.zsh
-source $ZSH/bundles/Tarrasch/zsh-mcd/mcd.plugin.zsh
 source $ZSH/bundles/joshuarubin/zsh-syntax-highlighting/syntax-highlighting.plugin.zsh
 source $ZSH/bundles/joshuarubin/zsh-gnu-utility/gnu-utility.plugin.zsh
 source $ZSH/bundles/joshuarubin/zsh-utility/utility.plugin.zsh
@@ -66,8 +64,6 @@ fpath+=$ZSH/bundles/joshuarubin/zsh-perl
 fpath+=$ZSH/bundles/joshuarubin/zsh-screen
 fpath+=$ZSH/bundles/joshuarubin/zsh-dpkg
 fpath+=$ZSH/bundles/joshuarubin/zsh-typescript
-fpath+=$ZSH/bundles/Tarrasch/zsh-command-not-found
-fpath+=$ZSH/bundles/Tarrasch/zsh-mcd
 fpath+=$ZSH/bundles/joshuarubin/zsh-syntax-highlighting
 fpath+=$ZSH/bundles/joshuarubin/zsh-gnu-utility
 fpath+=$ZSH/bundles/joshuarubin/zsh-utility
