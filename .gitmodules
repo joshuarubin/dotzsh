@@ -1,0 +1,111 @@
+[submodule "bundles/joshuarubin/zsh-custom"]
+	path = bundles/joshuarubin/zsh-custom
+	url = https://github.com/joshuarubin/zsh-custom
+[submodule "bundles/joshuarubin/zsh-environment"]
+	path = bundles/joshuarubin/zsh-environment
+	url = https://github.com/joshuarubin/zsh-environment
+[submodule "bundles/joshuarubin/zsh-terminal"]
+	path = bundles/joshuarubin/zsh-terminal
+	url = https://github.com/joshuarubin/zsh-terminal
+[submodule "bundles/joshuarubin/zsh-editor"]
+	path = bundles/joshuarubin/zsh-editor
+	url = https://github.com/joshuarubin/zsh-editor
+[submodule "bundles/joshuarubin/zsh-history"]
+	path = bundles/joshuarubin/zsh-history
+	url = https://github.com/joshuarubin/zsh-history
+[submodule "bundles/joshuarubin/zsh-directory"]
+	path = bundles/joshuarubin/zsh-directory
+	url = https://github.com/joshuarubin/zsh-directory
+[submodule "bundles/joshuarubin/zsh-spectrum"]
+	path = bundles/joshuarubin/zsh-spectrum
+	url = https://github.com/joshuarubin/zsh-spectrum
+[submodule "bundles/joshuarubin/zsh-helper"]
+	path = bundles/joshuarubin/zsh-helper
+	url = https://github.com/joshuarubin/zsh-helper
+[submodule "bundles/joshuarubin/zsh-completion"]
+	path = bundles/joshuarubin/zsh-completion
+	url = https://github.com/joshuarubin/zsh-completion
+[submodule "bundles/joshuarubin/zsh-archive"]
+	path = bundles/joshuarubin/zsh-archive
+	url = https://github.com/joshuarubin/zsh-archive
+[submodule "bundles/joshuarubin/zsh-fasd"]
+	path = bundles/joshuarubin/zsh-fasd
+	url = https://github.com/joshuarubin/zsh-fasd
+[submodule "bundles/joshuarubin/zsh-git"]
+	path = bundles/joshuarubin/zsh-git
+	url = https://github.com/joshuarubin/zsh-git
+[submodule "bundles/joshuarubin/zsh-osx"]
+	path = bundles/joshuarubin/zsh-osx
+	url = https://github.com/joshuarubin/zsh-osx
+[submodule "bundles/joshuarubin/zsh-secrets"]
+	path = bundles/joshuarubin/zsh-secrets
+	url = https://github.com/joshuarubin/zsh-secrets
+[submodule "bundles/joshuarubin/zsh-ssh"]
+	path = bundles/joshuarubin/zsh-ssh
+	url = https://github.com/joshuarubin/zsh-ssh
+[submodule "bundles/joshuarubin/zsh-prompt"]
+	path = bundles/joshuarubin/zsh-prompt
+	url = https://github.com/joshuarubin/zsh-prompt
+[submodule "bundles/joshuarubin/zsh-tmux"]
+	path = bundles/joshuarubin/zsh-tmux
+	url = https://github.com/joshuarubin/zsh-tmux
+[submodule "bundles/joshuarubin/zsh-rsync"]
+	path = bundles/joshuarubin/zsh-rsync
+	url = https://github.com/joshuarubin/zsh-rsync
+[submodule "bundles/joshuarubin/zsh-zmv"]
+	path = bundles/joshuarubin/zsh-zmv
+	url = https://github.com/joshuarubin/zsh-zmv
+[submodule "bundles/joshuarubin/zsh-gvm"]
+	path = bundles/joshuarubin/zsh-gvm
+	url = https://github.com/joshuarubin/zsh-gvm
+[submodule "bundles/joshuarubin/zsh-nodenv"]
+	path = bundles/joshuarubin/zsh-nodenv
+	url = https://github.com/joshuarubin/zsh-nodenv
+[submodule "bundles/joshuarubin/zsh-rvm"]
+	path = bundles/joshuarubin/zsh-rvm
+	url = https://github.com/joshuarubin/zsh-rvm
+[submodule "bundles/joshuarubin/zsh-java"]
+	path = bundles/joshuarubin/zsh-java
+	url = https://github.com/joshuarubin/zsh-java
+[submodule "bundles/joshuarubin/zsh-python"]
+	path = bundles/joshuarubin/zsh-python
+	url = https://github.com/joshuarubin/zsh-python
+[submodule "bundles/joshuarubin/zsh-direnv"]
+	path = bundles/joshuarubin/zsh-direnv
+	url = https://github.com/joshuarubin/zsh-direnv
+[submodule "bundles/joshuarubin/zsh-homebrew"]
+	path = bundles/joshuarubin/zsh-homebrew
+	url = https://github.com/joshuarubin/zsh-homebrew
+[submodule "bundles/joshuarubin/zsh-perl"]
+	path = bundles/joshuarubin/zsh-perl
+	url = https://github.com/joshuarubin/zsh-perl
+[submodule "bundles/joshuarubin/zsh-screen"]
+	path = bundles/joshuarubin/zsh-screen
+	url = https://github.com/joshuarubin/zsh-screen
+[submodule "bundles/joshuarubin/zsh-dpkg"]
+	path = bundles/joshuarubin/zsh-dpkg
+	url = https://github.com/joshuarubin/zsh-dpkg
+[submodule "bundles/joshuarubin/zsh-typescript"]
+	path = bundles/joshuarubin/zsh-typescript
+	url = https://github.com/joshuarubin/zsh-typescript
+[submodule "bundles/Tarrasch/zsh-command-not-found"]
+	path = bundles/Tarrasch/zsh-command-not-found
+	url = https://github.com/Tarrasch/zsh-command-not-found
+[submodule "bundles/Tarrasch/zsh-mcd"]
+	path = bundles/Tarrasch/zsh-mcd
+	url = https://github.com/Tarrasch/zsh-mcd
+[submodule "bundles/jimmijj/zsh-syntax-highlighting"]
+	path = bundles/jimmijj/zsh-syntax-highlighting
+	url = https://github.com/jimmijj/zsh-syntax-highlighting
+[submodule "bundles/joshuarubin/zsh-gnu-utility"]
+	path = bundles/joshuarubin/zsh-gnu-utility
+	url = https://github.com/joshuarubin/zsh-gnu-utility
+[submodule "bundles/joshuarubin/zsh-utility"]
+	path = bundles/joshuarubin/zsh-utility
+	url = https://github.com/joshuarubin/zsh-utility
+[submodule "bundles/joshuarubin/zsh-grc"]
+	path = bundles/joshuarubin/zsh-grc
+	url = https://github.com/joshuarubin/zsh-grc
+[submodule "bundles/joshuarubin/zsh-linuxbrew"]
+	path = bundles/joshuarubin/zsh-linuxbrew
+	url = https://github.com/joshuarubin/zsh-linuxbrew

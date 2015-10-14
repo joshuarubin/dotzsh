@@ -30,7 +30,7 @@ update-bundles() {(
 
   for bundle in $bundles; do
     if [ ! -d "$ZSH/bundles/$bundle" ]; then
-      git submodule add https://github.com/$bundle zsh/bundles/$bundle
+      git submodule add https://github.com/$bundle bundles/$bundle
     fi
   done
 
@@ -39,7 +39,7 @@ update-bundles() {(
   touch $bundle_init
 
   for bundle in $bundles; do
-    files=zsh/bundles/$bundle/*.plugin.zsh
+    files=bundles/$bundle/*.plugin.zsh
     for file in $~files; do
       echo source \$ZSH/$file >> $bundle_init
     done
