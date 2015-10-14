@@ -24,7 +24,7 @@ update-bundles() {(
     else
       cd $ZSH/bundles/$bundle
       git pull
-      git submodule update --init --recursive --merge --remote
+      git submodule update --init --recursive
     fi
   done
 
