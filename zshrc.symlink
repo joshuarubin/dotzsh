@@ -16,6 +16,15 @@ fi
 
 zstyle ':prezto:module:editor' dot-expansion 'yes'
 
+
+zstyle ':prezto:module:syntax-highlighting' highlighters \
+  'main' \
+  'brackets' \
+  'pattern' \
+  'cursor' \
+  'root' \
+  'line'
+
 bundle_init=$ZSH/bundle.init
 
 update-bundles() {(
@@ -55,8 +64,3 @@ update-bundles() {(
 if [ -r "$bundle_init" ]; then
   source $bundle_init
 fi
-
-autoload -U zcalc zsh-mime-setup
-zsh-mime-setup
-
-ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor root line)

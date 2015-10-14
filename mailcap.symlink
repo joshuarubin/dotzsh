@@ -1,5 +1,0 @@
-text/html;       open '%s'; nametemplate=%s.html
-image/gif;       open -a Preview %s
-image/jpeg;      open -a Preview %s; nametemplate=%s.jpg
-text/plain;      open -a vim '%s'; nametemplate=%s.txt
-application/pdf; open -a Preview '%s'

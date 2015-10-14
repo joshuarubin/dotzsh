@@ -94,9 +94,6 @@
 [submodule "bundles/Tarrasch/zsh-mcd"]
 	path = bundles/Tarrasch/zsh-mcd
 	url = git@github.com:Tarrasch/zsh-mcd.git
-[submodule "bundles/jimmijj/zsh-syntax-highlighting"]
-	path = bundles/jimmijj/zsh-syntax-highlighting
-	url = git@github.com:jimmijj/zsh-syntax-highlighting.git
 [submodule "bundles/joshuarubin/zsh-gnu-utility"]
 	path = bundles/joshuarubin/zsh-gnu-utility
 	url = git@github.com:joshuarubin/zsh-gnu-utility.git
@@ -109,3 +106,6 @@
 [submodule "bundles/joshuarubin/zsh-linuxbrew"]
 	path = bundles/joshuarubin/zsh-linuxbrew
 	url = git@github.com:joshuarubin/zsh-linuxbrew.git
+[submodule "bundles/joshuarubin/zsh-syntax-highlighting"]
+	path = bundles/joshuarubin/zsh-syntax-highlighting
+	url = git@github.com:joshuarubin/zsh-syntax-highlighting.git
