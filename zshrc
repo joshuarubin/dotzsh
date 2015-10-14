@@ -34,18 +34,23 @@ update-bundles() {(
 
   bundles=("${(@f)$(cat $ZSH/bundle.list)}")
 
-  cd $ZSH
-
   for bundle in $bundles; do
+    echo $bundle
+
     if [ ! -d "$ZSH/bundles/$bundle" ]; then
-      git submodule add git@github.com:$bundle.git bundles/$bundle
+      mkdir -p "$ZSH/bundles/${bundle:h}"
+      git clone --recursive git@github.com:$bundle.git "$ZSH/bundles/$bundle"
+    else
+      cd $ZSH/bundles/$bundle
+      git pull
+      git submodule update --init --recursive --merge
     fi
   done
 
-  git submodule update --init --recursive
   rm -f $bundle_init
   touch $bundle_init
 
+  cd $ZSH
   for bundle in $bundles; do
     files=bundles/$bundle/*.plugin.zsh
     for file in $~files; do
@@ -59,6 +64,10 @@ update-bundles() {(
     echo fpath+=\$ZSH/bundles/$bundle >> $bundle_init
   done
 )}
+
+if [ ! -e "$bundle_init" ]; then
+  update-bundles
+fi
 
 if [ -r "$bundle_init" ]; then
   source $bundle_init
