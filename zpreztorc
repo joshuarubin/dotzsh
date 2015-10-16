@@ -13,13 +13,6 @@
 zstyle ':prezto:*:*' color 'yes'
 
 #
-# Editor
-#
-
-# Auto convert .... to ../..
-zstyle ':prezto:module:editor' dot-expansion 'yes'
-
-#
 # Prompt
 #
 
