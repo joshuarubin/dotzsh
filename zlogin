@@ -15,19 +15,19 @@
 } &!
 
 # Print a random, hopefully interesting, adage.
-if (( $+commands[fortune] )); then
-  if [[ -t 0 || -t 1 ]]; then
-    cmd="fortune -a"
-
-    if (( $+commands[cowsay] )); then
-      cmd="$cmd | cowsay"
-    fi
-
-    if (( $+commands[lolcat] )); then
-      cmd="$cmd | lolcat"
-    fi
-
-    eval $cmd
-    print
-  fi
-fi
+# if (( $+commands[fortune] )); then
+#   if [[ -t 0 || -t 1 ]]; then
+#     cmd="fortune -a"
+#
+#     if (( $+commands[cowsay] )); then
+#       cmd="$cmd | cowsay"
+#     fi
+#
+#     if (( $+commands[lolcat] )); then
+#       cmd="$cmd | lolcat"
+#     fi
+#
+#     eval $cmd
+#     print
+#   fi
+# fi
