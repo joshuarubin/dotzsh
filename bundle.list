@@ -8,6 +8,7 @@ joshuarubin/zsh-spectrum
 joshuarubin/zsh-helper
 joshuarubin/zsh-completion
 joshuarubin/zsh-archive
+joshuarubin/zsh-linuxbrew
 joshuarubin/zsh-fasd
 joshuarubin/zsh-git
 joshuarubin/zsh-osx
@@ -32,4 +33,3 @@ joshuarubin/zsh-syntax-highlighting
 joshuarubin/zsh-gnu-utility
 joshuarubin/zsh-utility
 joshuarubin/zsh-grc
-joshuarubin/zsh-linuxbrew
