@@ -12,7 +12,6 @@ joshuarubin/zsh-linuxbrew
 joshuarubin/zsh-fasd
 joshuarubin/zsh-git
 joshuarubin/zsh-osx
-joshuarubin/zsh-secrets
 joshuarubin/zsh-ssh
 joshuarubin/zsh-prompt
 joshuarubin/zsh-tmux
@@ -33,3 +32,4 @@ joshuarubin/zsh-syntax-highlighting
 joshuarubin/zsh-gnu-utility
 joshuarubin/zsh-utility
 joshuarubin/zsh-grc
+joshuarubin/zsh-secrets
