@@ -21,7 +21,15 @@ fi
 
 export EDITOR="nvim"
 export VISUAL="nvim"
-export PAGER='less'
+export MANPAGER="nvim -c 'set ft=man' -"
+
+if [ -f "$HOME/.vim/bundle/vimpager/vimpager" ]; then
+  export PAGER=~/.vim/bundle/vimpager/vimpager
+  alias less=$PAGER
+  alias zless=$PAGER
+else
+  export PAGER='less'
+fi
 
 #
 # Language
