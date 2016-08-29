@@ -5,6 +5,14 @@
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
 
+PROFILE_STARTUP=false
+if [[ "$PROFILE_STARTUP" == true ]]; then
+    # http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html
+    PS4=$'%D{%M%S%.} %N:%i> '
+    exec 3>&2 2>$HOME/zsh_startlog.$$
+    setopt xtrace prompt_subst
+fi
+
 bundle_init=$ZSH/bundle.init
 
 update-bundles() {(
@@ -63,4 +71,9 @@ fi
 
 if [ -r "$bundle_init" ]; then
   source $bundle_init
+fi
+
+if [[ "$PROFILE_STARTUP" == true ]]; then
+    unsetopt xtrace
+    exec 2>&3 3>&-
 fi
