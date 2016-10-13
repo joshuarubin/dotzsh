@@ -9,7 +9,6 @@ joshuarubin/zsh-helper
 joshuarubin/zsh-completion
 joshuarubin/zsh-archive
 joshuarubin/zsh-linuxbrew
-joshuarubin/zsh-fasd
 joshuarubin/zsh-git
 joshuarubin/zsh-osx
 joshuarubin/zsh-ssh
@@ -35,3 +34,4 @@ joshuarubin/zsh-grc
 joshuarubin/zsh-secrets
 joshuarubin/zsh-iterm2
 joshuarubin/zsh-fzf
+joshuarubin/zsh-fasd
