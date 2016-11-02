@@ -19,16 +19,34 @@ fi
 # Editors
 #
 
-export EDITOR="nvim"
-export VISUAL="nvim"
-export MANPAGER="nvim -c 'set ft=man' -"
+export PAGER='less'
 
-if [ -f "$HOME/.vim/bundle/vimpager/vimpager" ]; then
-  export PAGER=~/.vim/bundle/vimpager/vimpager
+if (( $#commands[vim] )); then
+  export EDITOR="vim"
+  export VISUAL="vim"
+fi
+
+if (( $#commands[nvim] )); then
+  export EDITOR="nvim"
+  export VISUAL="nvim"
+  export MANPAGER="nvim -c 'set ft=man' -"
+fi
+
+if [ -d "$HOME/.vim/bundle/vimpager" ]; then
+  path[1,0]="$HOME/.vim/bundle/vimpager"
+  export MANPATH="$MANPATH:$HOME/.vim/bundle/vimpager"
+fi
+
+if (( $#commands[vimpager] )); then
+  export MANPAGER=vimpager
+
+  export PAGER=vimpager
   alias less=$PAGER
   alias zless=$PAGER
-else
-  export PAGER='less'
+fi
+
+if (( $#commands[vimcat] )); then
+  alias cat=vimcat
 fi
 
 #
