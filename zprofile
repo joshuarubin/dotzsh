@@ -29,9 +29,9 @@ if (( $#commands[nvim] )); then
   export MANPAGER="nvim -c 'set ft=man' -"
 fi
 
-if [ -d "$HOME/.vim/bundle/vimpager" ]; then
-  path[1,0]="$HOME/.vim/bundle/vimpager"
-  export MANPATH="$MANPATH:$HOME/.vim/bundle/vimpager"
+if [ -d "$HOME/.vim/plugged/vimpager" ]; then
+  path[1,0]="$HOME/.vim/plugged/vimpager"
+  export MANPATH="$MANPATH:$HOME/.vim/plugged/vimpager"
 fi
 
 if (( $#commands[vimpager] )); then
