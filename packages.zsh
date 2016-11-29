@@ -27,6 +27,6 @@ zplug "joshuarubin/zsh-iterm2"
 zplug "joshuarubin/zsh-rvm", nice:10 # after compinit
 zplug "modules/syntax-highlighting", from:prezto, nice:15
 zplug "modules/history-substring-search", from:prezto, nice:16
-zplug "modules/autosuggestions", from:prezto, nice:17
+zplug "joshuarubin/zsh-autosuggestions", nice:17
 zplug "joshuarubin/zsh-fzf", nice:18
 zplug "joshuarubin/zsh-fasd", nice:19 # last, after fzf
