@@ -3,7 +3,7 @@
 #
 
 zmodules=(directory environment spectrum git ssh history input meta \
-          syntax-highlighting history-substring-search prompt completion)
+          prompt syntax-highlighting history-substring-search completion)
 
 zprompt_theme='pure'
 
