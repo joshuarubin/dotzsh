@@ -3,9 +3,9 @@
 #
 
 zmodules=(directory environment spectrum git ssh history input meta \
-          syntax-highlighting history-substring-search prompt completion fasd)
+          syntax-highlighting history-substring-search prompt completion)
 
-zprompt_theme='gitster'
+zprompt_theme='pure'
 
 zhighlighters=(main brackets pattern cursor root line)
 
