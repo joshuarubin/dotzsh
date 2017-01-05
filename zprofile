@@ -70,13 +70,14 @@ typeset -gU cdpath fpath mailpath path manpath
 
 # Set the list of directories that Zsh searches for programs.
 path=(
+  ${HOME}/.rbenv/bin
+  ${HOME}/.rbenv/shims
   ${HOME}/.cargo/bin
   ${HOME}/.cabal/bin
   ${HOME}/.nodenv/bin
   ${HOME}/.nodenv/shims
   ${HOME}/.node-build/bin
   ${HOME}/.fzf/bin
-  ${HOME}/.rvm/bin
   ${HOME}/bin
   /usr/local/{bin,sbin}
   $path
@@ -111,6 +112,7 @@ fi
 
 TMPPREFIX="${TMPDIR%/}/zsh"
 
+export RBENV_SHELL=zsh
 export NODENV_SHELL=zsh
 
 if [[ -e /usr/libexec/java_home ]]; then
