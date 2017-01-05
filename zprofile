@@ -2,7 +2,7 @@
 # Executes commands at login pre-zshrc.
 #
 
-export ZSH=$HOME/.dotfiles/zsh
+export ZSH=${HOME}/.dotfiles/zsh
 
 #
 # Browser
@@ -29,9 +29,11 @@ if (( $#commands[nvim] )); then
   export MANPAGER="nvim -c 'set ft=man' -"
 fi
 
-if [ -d "$HOME/.vim/plugged/vimpager" ]; then
-  path[1,0]="$HOME/.vim/plugged/vimpager"
-  export MANPATH="$MANPATH:$HOME/.vim/plugged/vimpager"
+manpath=('')
+
+if [ -d ${HOME}/.vim/plugged/vimpager ]; then
+  path[1,0]=${HOME}/.vim/plugged/vimpager
+  manpath[1,0]=${HOME}/.vim/plugged/vimpager
 fi
 
 if (( $#commands[vimpager] )); then
@@ -59,7 +61,7 @@ fi
 #
 
 # Ensure path arrays do not contain duplicates.
-typeset -gU cdpath fpath mailpath path
+typeset -gU cdpath fpath mailpath path manpath
 
 # Set the the list of directories that cd searches.
 # cdpath=(
@@ -68,9 +70,20 @@ typeset -gU cdpath fpath mailpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
+  ${HOME}/.cargo/bin
+  ${HOME}/.cabal/bin
+  ${HOME}/.nodenv/bin
+  ${HOME}/.nodenv/shims
+  ${HOME}/.node-build/bin
+  ${HOME}/.fzf/bin
+  ${HOME}/.rvm/bin
+  ${HOME}/bin
   /usr/local/{bin,sbin}
   $path
 )
+
+# remove non-existent directories from $PATH
+path=($^path(N))
 
 #
 # Less
@@ -97,3 +110,48 @@ if [[ ! -d "$TMPDIR" ]]; then
 fi
 
 TMPPREFIX="${TMPDIR%/}/zsh"
+
+export NODENV_SHELL=zsh
+
+if [[ -e /usr/libexec/java_home ]]; then
+  export JAVA_HOME=$(/usr/libexec/java_home 2> /dev/null)
+  export STUDIO_JDK=$JAVA_HOME/../..
+  STUDIO_JDK=$STUDIO_JDK:A
+fi
+
+export GREP_COLOR='1;33'            # BSD.
+export GREP_COLORS="mt=$GREP_COLOR" # GNU.
+
+if [[ ${PAGER} == 'less' ]]; then
+  export LESS_TERMCAP_mb=$'\E[1;31m'    # Begins blinking.
+  export LESS_TERMCAP_md=$'\E[1;31m'    # Begins bold.
+  export LESS_TERMCAP_me=$'\E[0m'       # Ends mode.
+  export LESS_TERMCAP_se=$'\E[0m'       # Ends standout-mode.
+  export LESS_TERMCAP_so=$'\E[7m'       # Begins standout-mode.
+  export LESS_TERMCAP_ue=$'\E[0m'       # Ends underline.
+  export LESS_TERMCAP_us=$'\E[1;32m'    # Begins underline.
+fi
+
+export NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+
+if [[ -d ${HOME}/.fzf ]]; then
+  export FZF_DEFAULT_COMMAND='rg --files'
+  export FZF_DEFAULT_OPTS='
+    --inline-info
+    --ansi
+    --color fg:-1,bg:-1,hl:67,fg+:110,bg+:-1,hl+:67
+    --color info:229,prompt:242,pointer:73,marker:131,spinner:240
+  '
+  export FZF_CTRL_R_OPTS='--exact'
+  manpath[1,0]=${HOME}/.fzf/man
+fi
+
+# Treat these characters as part of a word.
+WORDCHARS='*?_-.[]~&;!#$%^(){}<>'
+
+# BSD Core Utilities
+# Define colors for BSD ls.
+export LSCOLORS='exfxcxdxbxGxDxabagacad'
+
+# Define colors for the completion system.
+export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'

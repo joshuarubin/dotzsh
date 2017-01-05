@@ -1,0 +1,2 @@
+# Pushes an entry onto the directory stack and lists its contents.
+builtin pushd "$argv[-1]" && ls "${(@)argv[1,-2]}"

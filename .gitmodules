@@ -1,3 +1,6 @@
-[submodule "zplug"]
-	path = zplug
-	url = https://github.com/zplug/zplug.git
+[submodule "zim"]
+	path = zim
+	url = https://github.com/Eriner/zim.git
+[submodule "zsh-autosuggestions"]
+	path = zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions.git

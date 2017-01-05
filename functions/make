@@ -1,0 +1,13 @@
+#
+# Highlights make output.
+#
+
+function make {
+  if (( $+commands[colormake] )); then
+    colormake "$@"
+  else
+    command make "$@"
+  fi
+}
+
+make "$@"

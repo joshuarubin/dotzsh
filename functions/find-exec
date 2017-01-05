@@ -1,0 +1,2 @@
+# Finds files and executes a command on them.
+find . -type f -iname "*${1:-}*" -exec "${2:-file}" '{}' \;
