@@ -56,6 +56,10 @@ if [[ -z "$LANG" ]]; then
   export LANG='en_US.UTF-8'
 fi
 
+if [[ -z "$LC_ALL" ]]; then
+  export LC_ALL=$LANG
+fi
+
 #
 # Paths
 #
@@ -63,13 +67,11 @@ fi
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path manpath
 
-# Set the the list of directories that cd searches.
-# cdpath=(
-#   $cdpath
-# )
+GOPATH=${HOME}/go
 
 # Set the list of directories that Zsh searches for programs.
 path=(
+  ${GOPATH}/bin
   ${HOME}/.rbenv/bin
   ${HOME}/.rbenv/shims
   ${HOME}/.cargo/bin
@@ -81,6 +83,11 @@ path=(
   ${HOME}/bin
   /usr/local/{bin,sbin}
   $path
+)
+
+cdpath=(
+  .
+  ${HOME}
 )
 
 # remove non-existent directories from $PATH

@@ -30,8 +30,9 @@ for file in ${ZSH}/{completion,startup}/^(*.zwc)(-.N); do
   source ${file}
 done
 
-# remove non-existent directories from $PATH
+# remove non-existent directories
 path=($^path(N))
+cdpath=($^cdpath(N))
 
 path=(
   bin
