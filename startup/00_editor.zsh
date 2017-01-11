@@ -29,8 +29,5 @@ else
   bindkey -M vicmd "/" history-incremental-search-forward
 fi
 
-bindkey -M viins "$key_info[Control]F" vi-forward-word
-bindkey -M viins "$key_info[Control]E" vi-add-eol
-
 # Set vim mode
 bindkey -v
