@@ -38,14 +38,27 @@ fi
 
 if (( $#commands[vimpager] )); then
   export MANPAGER=vimpager
-
   export PAGER=vimpager
-  alias less=$PAGER
-  alias zless=$PAGER
+
+  eval "
+    function less {
+      'vimpager' \"\$@\"
+    }
+  "
+
+  eval "
+    function zless {
+      'vimpager' \"\$@\"
+    }
+  "
 fi
 
 if (( $#commands[vimcat] )); then
-  alias cat=vimcat
+  eval "
+    function cat {
+      'vimcat' \"\$@\"
+    }
+  "
 fi
 
 #

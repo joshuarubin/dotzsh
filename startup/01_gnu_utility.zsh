@@ -1,7 +1,7 @@
 if (( $+commands[gwhoami] )); then
   _gnu_utility_cmds=(
     # Coreutils
-    'base64' 'basename' 'cat' 'chcon' 'chgrp' 'chmod' 'chown'
+    'base64' 'basename' 'chcon' 'chgrp' 'chmod' 'chown'
     'chroot' 'cksum' 'comm' 'cp' 'csplit' 'cut' 'date' 'dd' 'df'
     'dir' 'dircolors' 'dirname' 'du' 'env' 'expand' 'expr'
     'factor' 'false' 'fmt' 'fold' 'groups' 'head' 'hostid' 'id'
