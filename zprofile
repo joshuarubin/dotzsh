@@ -37,28 +37,8 @@ if [ -d ${HOME}/.vim/plugged/vimpager ]; then
 fi
 
 if (( $#commands[vimpager] )); then
-  export MANPAGER=vimpager
   export PAGER=vimpager
-
-  eval "
-    function less {
-      'vimpager' \"\$@\"
-    }
-  "
-
-  eval "
-    function zless {
-      'vimpager' \"\$@\"
-    }
-  "
-fi
-
-if (( $#commands[vimcat] )); then
-  eval "
-    function cat {
-      'vimcat' \"\$@\"
-    }
-  "
+  export MANPAGER=vimpager
 fi
 
 #
@@ -82,6 +62,14 @@ typeset -gU cdpath fpath mailpath path manpath
 
 GOPATH=${HOME}/go
 
+if [[ -x /usr/local/include ]]; then
+  export CGO_CFLAGS="-I/usr/local/include"
+fi
+
+if [[ -x /usr/local/lib ]]; then
+  export CGO_LDFLAGS="-L/usr/local/lib"
+fi
+
 # Set the list of directories that Zsh searches for programs.
 path=(
   ${GOPATH}/bin
@@ -101,10 +89,12 @@ path=(
 cdpath=(
   .
   ${HOME}
+  ${GOPATH}/src
 )
 
-# remove non-existent directories from $PATH
+# remove non-existent directories
 path=($^path(N))
+cdpath=($^cdpath(N))
 
 #
 # Less
