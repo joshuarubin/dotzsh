@@ -2,6 +2,8 @@
 # Executes commands at the start of an interactive session.
 #
 
+setopt EXTENDED_GLOB
+
 fpath[1,0]=${ZSH}/functions
 
 for func in ${ZSH}/functions/*(-.N:t); do
