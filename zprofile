@@ -26,7 +26,6 @@ fi
 if (( $#commands[nvim] )); then
   export EDITOR="nvim"
   export VISUAL="nvim"
-  export MANPAGER="nvim -c 'set ft=man' -"
 fi
 
 manpath=('')
