@@ -71,6 +71,7 @@ path=(
   ${HOME}/.node-build/bin
   ${HOME}/.fzf/bin
   ${HOME}/bin
+  ${ZSH}/../bin(:A)
   /usr/local/{bin,sbin}
   $path
 )
