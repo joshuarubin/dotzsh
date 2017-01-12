@@ -111,6 +111,14 @@ if (( $#commands[(i)lesspipe(|.sh)] )); then
   export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
 fi
 
+#
+# Temporary Files
+#
+
+if [[ -n "${XDG_RUNTIME_DIR}" && -z "${TMPDIR}" ]]; then
+  export TMPDIR=${XDG_RUNTIME_DIR}
+fi
+
 export RBENV_SHELL=zsh
 export NODENV_SHELL=zsh
 
