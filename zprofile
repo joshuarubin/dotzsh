@@ -51,11 +51,11 @@ typeset -gU cdpath fpath mailpath path manpath
 
 GOPATH=${HOME}/go
 
-if [[ -x /usr/local/include ]]; then
+if [[ -d /usr/local/include ]]; then
   export CGO_CFLAGS="-I/usr/local/include"
 fi
 
-if [[ -x /usr/local/lib ]]; then
+if [[ -d /usr/local/lib ]]; then
   export CGO_LDFLAGS="-L/usr/local/lib"
 fi
 
@@ -103,6 +103,14 @@ fi
 #
 # Temporary Files
 #
+
+if [[ -z "${TMPDIR}" ]]; then
+  if [[ -d /var/tmp && -w /var/tmp ]]; then
+    export TMPDIR=/var/tmp
+  elif [[ -d /tmp && -w /tmp ]]; then
+    export TMPDIR=/tmp
+  fi
+fi
 
 if [[ -n "${XDG_RUNTIME_DIR}" && -z "${TMPDIR}" ]]; then
   export TMPDIR=${XDG_RUNTIME_DIR}
