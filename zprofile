@@ -70,6 +70,7 @@ path=(
   ${HOME}/.nodenv/shims
   ${HOME}/.node-build/bin
   ${HOME}/.fzf/bin
+  ${HOME}/.local/bin
   ${HOME}/bin
   ${ZSH}/../bin(:A)
   /usr/local/{bin,sbin}
