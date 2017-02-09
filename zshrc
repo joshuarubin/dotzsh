@@ -25,8 +25,7 @@ if [[ -s ${ZDOTDIR:-${HOME}}/.zim/init.zsh ]]; then
   source ${ZDOTDIR:-${HOME}}/.zim/init.zsh
 fi
 
-autoload -Uz bashcompinit
-bashcompinit
+autoload -Uz bashcompinit && bashcompinit
 
 for file in ${ZSH}/{completion,startup}/^(*.zwc)(-.N); do
   source ${file}

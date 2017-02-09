@@ -1,6 +1,3 @@
-autoload bashcompinit
-bashcompinit
-
 _python_argcomplete() {
     local prefix=
     if [[ $COMP_LINE != 'gcloud '* ]]; then
