@@ -72,7 +72,6 @@ path=(
   ${HOME}/.fzf/bin
   ${HOME}/.local/bin
   ${HOME}/bin
-  ${ZSH}/../bin(:A)
   /usr/local/{bin,sbin}
   $path
 )
