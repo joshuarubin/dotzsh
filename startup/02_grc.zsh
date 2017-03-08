@@ -1,21 +1,41 @@
-GRC=`command -v grc 2> /dev/null`
-if [ "$TERM" != dumb ] && [ -n "$GRC" ]; then
+if [ "$TERM" != dumb ]; then
+  GRC=$commands[grc]
+fi
+
+if [ -n "$GRC" ]; then
   alias colourify="$GRC -es --colour=auto"
+  alias blkid='colourify blkid'
   alias configure='colourify ./configure'
+  alias df='colourify df'
   alias diff='colourify diff'
-  alias make='colourify make'
+  alias docker='colourify docker'
+  alias docker-machine='colourify docker-machine'
+  alias du='colourify du'
+  alias env='colourify env'
+  alias free='colourify free'
+  # alias make='colourify make'
   alias gcc='colourify gcc'
   alias g++='colourify g++'
+  alias ip='colourify ip'
+  alias iptables='colourify iptables'
   alias as='colourify as'
   alias gas='colourify gas'
   alias ld='colourify ld'
+  # alias ls='colourify ls --color'
+  alias lsblk='colourify lsblk'
+  alias lspci='colourify lspci'
   alias netstat='colourify netstat'
   alias ping='colourify ping'
   alias ping6='colourify ping6'
   alias traceroute='colourify /usr/sbin/traceroute'
+  alias traceroute6='colourify /usr/sbin/traceroute6'
+  alias head='colourify head'
+  alias tail='colourify tail'
   alias dig='colourify dig'
   alias mount='colourify mount'
   alias ps='colourify ps'
   alias mtr='colourify mtr'
-  alias df='colourify df -kh'
+  alias semanage='colourify semanage'
+  alias getsebool='colourify setsebool'
+  alias ifconfig='colourify /sbin/ifconfig'
 fi

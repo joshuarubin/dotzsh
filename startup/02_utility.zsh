@@ -62,16 +62,13 @@ function is-callable {
 }
 
 if is-callable 'dircolors'; then
-  # GNU Core Utilities
-  alias ls='ls --group-directories-first'
-
   if [[ -s "$HOME/.dir_colors" ]]; then
     eval "$(dircolors --sh "$HOME/.dir_colors" 2> /dev/null)"
   else
     eval "$(dircolors --sh 2> /dev/null)"
   fi
 
-  alias ls="${aliases[ls]:-ls} --color=auto"
+  alias ls="${aliases[ls]:-ls} --group-directories-first --color=auto"
 else
   if [[ $OSTYPE == openbsd* ]]; then
     if (( ${+commands[colorls]} )); then
@@ -143,7 +140,8 @@ elif (( ${+commands[curl]} )); then
   alias get='curl --continue-at - --location --progress-bar --remote-name --remote-time'
 fi
 
-alias du='du -kh'
+alias du="${aliases[du]:-du} -kh"
+alias df="${aliases[df]:-df} -kh"
 
 if (( $+commands[htop] )); then
   alias top=htop
