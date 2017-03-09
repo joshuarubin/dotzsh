@@ -115,7 +115,7 @@ if (( $+commands[fzf-tmux] )); then
       nvim "$_fasd_all"
       return
     fi
-    local _fasd_ret="$(fasd -lfb nviminfo "$@" | fzf-tmux --tac --no-sort)"
+    local _fasd_ret="$(fasd -ltfb nviminfo "$@" | fzf-tmux --tac --no-sort)"
     [ -f "$_fasd_ret" ] && nvim "$_fasd_ret" || printf %s\n "$_fasd_ret"
   }
 

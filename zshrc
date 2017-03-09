@@ -10,13 +10,8 @@ for func in ${ZSH}/functions/*(-.N:t); do
   autoload -Uz ${func}
 done
 
-if [[ ! ${TERM} == (linux|*bsd*|dumb) ]]; then
-  autoload -Uz promptinit && promptinit
-  prompt pure
-fi
-
 zmodules=(directory environment spectrum git ssh history input meta \
-          syntax-highlighting history-substring-search completion)
+          syntax-highlighting history-substring-search completion git-info prompt)
 
 zhighlighters=(main brackets pattern cursor root line)
 
@@ -35,6 +30,7 @@ done
 path=($^path(N))
 cdpath=($^cdpath(N))
 
+# add relative directories to path
 path=(
   bin
   node_modules/.bin

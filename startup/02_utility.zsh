@@ -61,45 +61,67 @@ function is-callable {
   (( $+commands[$1] )) || (( $+functions[$1] )) || (( $+aliases[$1] ))
 }
 
-if is-callable 'dircolors'; then
-  if [[ -s "$HOME/.dir_colors" ]]; then
-    eval "$(dircolors --sh "$HOME/.dir_colors" 2> /dev/null)"
+if (( ${terminfo[colors]} >= 8 )); then
+  # ls Colors
+  if is-callable 'dircolors'; then
+    # GNU
+    if [[ -s ${HOME}/.dir_colors ]]; then
+      eval "$(dircolors --sh ${HOME}/.dir_colors)"
+    else
+      eval "$(dircolors --sh)"
+    fi
+
+    alias ls="${aliases[ls]:-ls} --group-directories-first --color=auto"
   else
-    eval "$(dircolors --sh 2> /dev/null)"
+    # BSD
+
+    # colors for ls and completion
+    export LSCOLORS='exfxcxdxbxGxDxabagacad'
+    export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=36;01:cd=33;01:su=31;40;07:sg=36;40;07:tw=32;40;07:ow=33;40;07:'
+
+    # stock OpenBSD ls does not support colors at all, but colorls does.
+    if [[ $OSTYPE == openbsd* ]]; then
+      if (( ${+commands[colorls]} )); then
+        alias ls='colorls -G'
+      fi
+    else
+      alias ls="${aliases[ls]:-ls} -G"
+    fi
   fi
 
-  alias ls="${aliases[ls]:-ls} --group-directories-first --color=auto"
-else
-  if [[ $OSTYPE == openbsd* ]]; then
-    if (( ${+commands[colorls]} )); then
-      alias ls='colorls -G'
+  # grep Colors
+  export GREP_COLOR='1;33'              # BSD
+  export GREP_COLORS="mt=${GREP_COLOR}" # GNU
+  if [[ ${OSTYPE} == openbsd* ]]; then
+    if (( ${+commands[ggrep]} )); then
+      alias grep='ggrep --color=auto'
     fi
   else
-    alias ls='ls -G'
+   alias grep='grep --color=auto'
+  fi
+
+  # less Colors
+  if [[ ${PAGER} == 'less' ]]; then
+    export LESS_TERMCAP_mb=$'\E[1;31m'    # Begins blinking.
+    export LESS_TERMCAP_md=$'\E[1;31m'    # Begins bold.
+    export LESS_TERMCAP_me=$'\E[0m'       # Ends mode.
+    export LESS_TERMCAP_se=$'\E[0m'       # Ends standout-mode.
+    export LESS_TERMCAP_so=$'\E[7m'       # Begins standout-mode.
+    export LESS_TERMCAP_ue=$'\E[0m'       # Ends underline.
+    export LESS_TERMCAP_us=$'\E[1;32m'    # Begins underline.
   fi
 fi
 
-if [[ ${OSTYPE} == openbsd* ]]; then
-  if (( ${+commands[ggrep]} )); then
-    alias grep='ggrep --color=auto'
-  fi
-else
-  alias grep='grep --color=auto'
-fi
+alias l='ls -lAh'         # all files, human-readable sizes
+[[ -n ${PAGER} ]] && alias lm="l | ${PAGER}" # all files, human-readable sizes, use pager
+alias ll='ls -lh'         # human-readable sizes
+alias lr='ll -R'          # human-readable sizes, recursive
+alias lx='ll -XB'         # human-readable sizes, sort by extension (GNU only)
+alias lk='ll -Sr'         # human-readable sizes, largest last
+alias lt='ll -tr'         # human-readable sizes, most recent last
+alias lc='lt -c'          # human-readable sizes, most recent last, change time
 
-[[ -n ${PAGER} ]] && alias lm="ls -lhA | ${PAGER}" # all files, human-readable sizes, use pager
-
-alias l='ls -1A'    # Lists in one column, hidden files.
-alias la='ls -lhA'  # Lists human readable sizes, hidden files.
-alias lr='ls -lhR'  # Lists human readable sizes, recursively.
-alias lx='ls -lhXB' # Lists sorted by extension (GNU only).
-alias lk='ls -lhSr' # Lists sorted by size, largest last.
-alias lt='ls -lhtr' # Lists sorted by date, most recent last.
-alias lc='ls -lhc'  # Lists sorted by date, most recent last, shows change time.
-alias lu='ls -lhu'  # Lists sorted by date, most recent last, shows access time.
-
-alias v='ls -lh'
-alias sl='ls'
+alias v='ll'
 
 alias c='clear'
 alias cdc='cd && clear'
@@ -158,6 +180,12 @@ fi
 if [[ ${OSTYPE} == linux* ]]; then
   alias chmod='chmod --preserve-root -v'
   alias chown='chown --preserve-root -v'
+fi
+
+# not aliasing rm -i, but if safe-rm is available, use condom.
+# if safe-rmdir is available, the OS is suse which has its own terrible 'safe-rm' which is not what we want
+if (( ${+commands[safe-rm]} && ! ${+commands[safe-rmdir]} )); then
+  alias rm='nocorrect safe-rm'
 fi
 
 if [[ -d /usr/local/share/zsh/help ]]; then
