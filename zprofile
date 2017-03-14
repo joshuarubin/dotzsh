@@ -142,4 +142,5 @@ fi
 WORDCHARS='*?_-.[]~&;!#$%^(){}<>'
 
 # Setup prompt
-zprompt_theme='magicmace'
+zprompt_theme='lean'
+PROMPT_LEAN_VIMODE=1
