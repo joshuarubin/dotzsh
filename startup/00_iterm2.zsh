@@ -1,3 +1,4 @@
+if [[ "$TERM_PROGRAM" == "iTerm.app" ]]; then
 if [[ -o interactive ]]; then
   if [ "$TERM" != "screen" -a "$ITERM_SHELL_INTEGRATION_INSTALLED" = "" ]; then
     ITERM_SHELL_INTEGRATION_INSTALLED=Yes
@@ -131,4 +132,5 @@ if [[ -o interactive ]]; then
     iterm2_print_state_data
     printf "\033]1337;ShellIntegrationVersion=5;shell=zsh\007"
   fi
+fi
 fi
