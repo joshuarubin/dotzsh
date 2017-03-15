@@ -49,6 +49,8 @@ fi
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path manpath
 
+export MANPATH
+
 GOPATH=${HOME}/go
 
 if [[ -d /usr/local/include ]]; then
