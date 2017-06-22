@@ -3,11 +3,16 @@
 #
 
 function make {
-  if (( $+commands[colormake] )); then
-    colormake "$@"
-  elif [ -n "$GRC" ]; then
-    colourify make "$@"
+  if [ -t 1 ]; then
+    if (( $+commands[colormake] )); then
+      colormake "$@"
+    elif [ -n "$GRC" ]; then
+      colourify make "$@"
+    else
+      command make "$@"
+    fi
   else
+    # output is being piped, just use standard make
     command make "$@"
   fi
 }

@@ -11,12 +11,14 @@ fi
 PORT=${1}
 if [ -z "${PORT}" ]; then PORT=8000; fi
 
-if (( $+commands[simplehttp2server] )); then
+if (( $+commands[ran] )); then
+  open "http://localhost:${PORT}" && ran --port "${PORT}" --listdir
+elif (( $+commands[simple-httpd] )); then
+  open "http://localhost:${PORT}" && simple-httpd -p "${PORT}"
+elif (( $+commands[simplehttp2server] )); then
   open "https://localhost:${PORT}" && simplehttp2server -listen "localhost:${PORT}"
 elif (( $+commands[devd] )); then
   devd --port "${PORT}" --open --livereload .
-elif (( $+commands[ran] )); then
-  open "http://localhost:${PORT}" && ran --port "${PORT}" --listdir
 elif (( $+commands[python] )); then
   open "http://localhost:${PORT}" && python -m SimpleHTTPServer "${PORT}"
 else
