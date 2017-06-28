@@ -1,3 +1,5 @@
+if (( $#commands[fzf] )); then
+
 # Key bindings
 # ------------
 if [[ $- == *i* ]]; then
@@ -80,5 +82,7 @@ bindkey '^X^R' fzf-history-widget-accept
 _fzf_compgen_path() {
   rg --files "$1"
 }
+
+fi
 
 fi

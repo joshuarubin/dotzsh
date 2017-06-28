@@ -1,3 +1,5 @@
+if (( $#commands[fasd] )); then
+
 #### BEGIN OUTPUT OF `fasd --init posix-alias zsh-hook zsh-ccomp zsh-ccomp-install zsh-wcomp zsh-wcomp-install` ####
 
 alias a='fasd -a'
@@ -128,4 +130,6 @@ if (( $+commands[fzf-tmux] )); then
   alias j="fasd_i_cd"
   alias e="fasd_i_e"
   alias nv="fasd_i -ftb nviminfo"
+fi
+
 fi

@@ -31,3 +31,17 @@ fi
 
 # Set vim mode
 bindkey -v
+
+# Reduce time between insert and normal mode switching
+export KEYTIMEOUT=1
+
+# Use vim cli mode
+bindkey -M viins '^P' up-history
+bindkey -M viins '^N' down-history
+
+# ^w and ^h working even after returning from command mode
+bindkey -M viins '^w' backward-kill-word
+bindkey -M viins '^h' backward-delete-char
+
+# ctrl-r starts searching history backward
+bindkey '^r' history-incremental-search-backward

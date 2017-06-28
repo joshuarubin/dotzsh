@@ -11,7 +11,8 @@ for func in ${ZSH}/functions/*(-.N:t); do
 done
 
 zmodules=(directory environment spectrum git ssh history input meta \
-          syntax-highlighting history-substring-search completion git-info prompt)
+          syntax-highlighting history-substring-search completion git-info \
+          prompt autosuggestions)
 
 zhighlighters=(main brackets pattern cursor root line)
 
