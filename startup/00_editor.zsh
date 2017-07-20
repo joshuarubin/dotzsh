@@ -44,4 +44,17 @@ bindkey -M viins '^w' backward-kill-word
 bindkey -M viins '^h' backward-delete-char
 
 # ctrl-r starts searching history backward
-bindkey '^r' history-incremental-search-backward
+bindkey -M viins '^r' history-incremental-search-backward
+
+# meta-b and meta-f move back and forward by word while in insert mode
+bindkey -M viins '^[b' backward-word
+bindkey -M viins '^[f' forward-word
+
+# insert the contents of the kill buffer
+bindkey -M viins '^y' yank
+
+# kill from the cursor to the end of the line
+bindkey -M viins '^k' kill-line
+
+# incrementally undo the last text modification
+bindkey -M viins '^_' undo
