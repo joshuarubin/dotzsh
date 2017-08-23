@@ -37,3 +37,5 @@ path=(
   node_modules/.bin
   $path
 )
+
+autoload -Uz promptinit && promptinit

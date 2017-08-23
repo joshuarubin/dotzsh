@@ -1,0 +1,16 @@
+prompt_powerline_precmd() {
+  PS1="$(powerline-go -error $? -shell zsh)"
+}
+
+prompt_powerline_setup() {
+  for s in "${precmd_functions[@]}"; do
+    if [ "$s" = "powerline_precmd" ]; then
+      return
+    fi
+  done
+  precmd_functions+=(prompt_powerline_precmd)
+}
+
+if (( $#commands[powerline-go] )); then
+  prompt_powerline_setup "$@"
+fi
