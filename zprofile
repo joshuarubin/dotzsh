@@ -78,6 +78,10 @@ path=(
   $path
 )
 
+if (( $#commands[perl] )); then
+  path[1,0]=$(perl -V:prefix | cut -d"'" -f2)/bin
+fi
+
 cdpath=(
   .
   ${HOME}
