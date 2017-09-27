@@ -51,3 +51,6 @@ unsetopt FLOW_CONTROL
 
 # Beep on error in line editor.
 setopt BEEP
+
+# Attempt to preserve a partial line (i.e. a line that did not end with a newline) that would otherwise be covered up by the command prompt due to the PROMPT_CR option.
+setopt PROMPT_SP
