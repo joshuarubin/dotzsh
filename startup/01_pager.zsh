@@ -11,7 +11,3 @@ if (( $#commands[vimpager] )); then
   # force it to use regular vim
   export VIMPAGER_VIM=vim
 fi
-
-# if (( $#commands[nvim] )); then
-#   export MANPAGER="nvim -c 'set ft=man' -"
-# fi

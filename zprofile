@@ -23,11 +23,6 @@ if (( $#commands[vim] )); then
   export VISUAL="vim"
 fi
 
-if (( $#commands[nvim] )); then
-  export EDITOR="nvim"
-  export VISUAL="nvim"
-fi
-
 manpath=('')
 
 #

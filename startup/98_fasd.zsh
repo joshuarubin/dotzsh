@@ -91,8 +91,8 @@ compctl -U -K _fasd_zsh_cmd_complete -V fasd -x 'C[-1,-*e],s[-]n[1,e]' -c - \
 
 alias z='fasd_cd -di'
 alias j="fasd_cd -di"
-alias e="fasd -ftie nvim -b nviminfo" # quick opening files with vim
-alias nv="fasd -ftib nviminfo"
+alias e="fasd -ftie ${EDITOR} -b viminfo -B nviminfo" # quick opening files with vim
+alias nv="fasd -ftib viminfo -B nviminfo"
 
 if (( $+commands[fzf-tmux] )); then
   fasd_i() {
@@ -111,14 +111,14 @@ if (( $+commands[fzf-tmux] )); then
   }
 
   fasd_i_e() {
-    local _fasd_all=$(fasd -lfb nviminfo "$@")
+    local _fasd_all=$(fasd -lfb viminfo -B nviminfo "$@")
     [ -z "$_fasd_all" ] && return
     if [ "$(echo "$_fasd_all" | wc -l)" -eq 1 ]; then
-      nvim "$_fasd_all"
+      ${EDITOR} "$_fasd_all"
       return
     fi
-    local _fasd_ret="$(fasd -ltfb nviminfo "$@" | fzf-tmux --tac --no-sort)"
-    [ -f "$_fasd_ret" ] && nvim "$_fasd_ret" || printf %s\n "$_fasd_ret"
+    local _fasd_ret="$(fasd -ltfb viminfo -B nviminfo "$@" | fzf-tmux --tac --no-sort)"
+    [ -f "$_fasd_ret" ] && ${EDITOR} "$_fasd_ret" || printf %s\n "$_fasd_ret"
   }
 
   alias s="fasd_i"
@@ -129,7 +129,7 @@ if (( $+commands[fzf-tmux] )); then
   alias z="fasd_i_cd"
   alias j="fasd_i_cd"
   alias e="fasd_i_e"
-  alias nv="fasd_i -ftb nviminfo"
+  alias nv="fasd_i -ftb viminfo -B nviminfo"
 fi
 
 fi
