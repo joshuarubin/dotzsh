@@ -59,6 +59,7 @@ fi
 # Set the list of directories that Zsh searches for programs.
 path=(
   ${GOPATH}/bin
+  ${HOME}/.yarn/bin
   ${HOME}/.rbenv/bin
   ${HOME}/.rbenv/shims
   ${HOME}/.cargo/bin
