@@ -77,7 +77,11 @@ path=(
 )
 
 if (( $#commands[perl] )); then
-  path[1,0]=$(perl -V:prefix | cut -d"'" -f2)/bin
+  ppath=$(perl -V:prefix | cut -d"'" -f3)
+  if [[ "$ppath" != "/usr" ]]; then
+    path[1,0]=${ppath}/bin
+  fi
+  unset ppath
 fi
 
 cdpath=(
