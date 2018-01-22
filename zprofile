@@ -70,6 +70,8 @@ path=(
   ${HOME}/.fzf/bin
   ${HOME}/.local/bin
   ${HOME}/bin
+  ${HOME}/.linuxbrew/bin
+  /home/linuxbrew/.linuxbrew/bin
   /usr/local/{bin,sbin}
   $path
 )
