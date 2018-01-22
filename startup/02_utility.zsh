@@ -136,16 +136,18 @@ elif [[ "$OSTYPE" == cygwin* ]]; then
   alias o='cygstart'
   alias pbcopy='tee > /dev/clipboard'
   alias pbpaste='cat /dev/clipboard'
-else
+elif (( $+commands[xclip] )); then
   alias o='xdg-open'
-
-  if (( $+commands[xclip] )); then
-    alias pbcopy='xclip -selection clipboard -in'
-    alias pbpaste='xclip -selection clipboard -out'
-  elif (( $+commands[xsel] )); then
-    alias pbcopy='xsel --clipboard --input'
-    alias pbpaste='xsel --clipboard --output'
-  fi
+  alias pbcopy='xclip -selection clipboard -in'
+  alias pbpaste='xclip -selection clipboard -out'
+elif (( $+commands[xsel] )); then
+  alias o='xdg-open'
+  alias pbcopy='xsel --clipboard --input'
+  alias pbpaste='xsel --clipboard --output'
+elif (( $+commands[lemonade] )); then
+  alias o='lemonade open'
+  alias pbcopy='lemonade copy'
+  alias pbpaste='lemonade paste'
 fi
 
 alias pbc='pbcopy'
