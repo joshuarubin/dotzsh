@@ -43,11 +43,11 @@ bindkey -M viins '^N' down-history
 bindkey -M viins '^w' backward-kill-word
 bindkey -M viins '^h' backward-delete-char
 
-bindkey -M viins '^a' beginning-of-line
-bindkey -M viins '^b' backward-word
-bindkey -M viins '^f' forward-word
-bindkey -M viins '^e' end-of-line
-bindkey -M viins '^u' vi-kill-line
+bindkey -M viins '^a' vi-beginning-of-line
+bindkey -M viins '^b' vi-backward-char
+bindkey -M viins '^f' vi-forward-char
+bindkey -M viins '^e' vi-end-of-line
+bindkey -M viins '^u' backward-kill-line
 
 # ctrl-r starts searching history backward
 bindkey -M viins '^r' history-incremental-search-backward
@@ -55,6 +55,7 @@ bindkey -M viins '^r' history-incremental-search-backward
 # meta-b and meta-f move back and forward by word while in insert mode
 bindkey -M viins '^[b' backward-word
 bindkey -M viins '^[f' forward-word
+bindkey -M viins '^[d' kill-word
 
 # insert the contents of the kill buffer
 bindkey -M viins '^y' yank
