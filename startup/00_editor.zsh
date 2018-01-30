@@ -43,6 +43,12 @@ bindkey -M viins '^N' down-history
 bindkey -M viins '^w' backward-kill-word
 bindkey -M viins '^h' backward-delete-char
 
+bindkey -M viins '^a' beginning-of-line
+bindkey -M viins '^b' backward-word
+bindkey -M viins '^f' forward-word
+bindkey -M viins '^e' end-of-line
+bindkey -M viins '^u' vi-kill-line
+
 # ctrl-r starts searching history backward
 bindkey -M viins '^r' history-incremental-search-backward
 
