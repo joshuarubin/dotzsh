@@ -72,6 +72,7 @@ path=(
   ${HOME}/bin
   ${HOME}/.linuxbrew/bin
   /home/linuxbrew/.linuxbrew/bin
+  /snap/bin
   /usr/local/{bin,sbin}
   $path
 )
