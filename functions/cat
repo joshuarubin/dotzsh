@@ -1,5 +1,7 @@
 function cat {
-  if (( $+commands[ccat] )); then
+  if (( $+commands[bat] )); then
+    bat "$@"
+  elif (( $+commands[ccat] )); then
     ccat "$@"
   elif (( $+commands[gcat] )); then
     gcat "$@"
