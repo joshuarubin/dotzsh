@@ -10,7 +10,7 @@ for func in ${ZSH}/functions/*(-.N:t); do
   autoload -Uz ${func}
 done
 
-zmodules=(directory environment spectrum git ssh history input meta \
+zmodules=(directory environment git ssh history input \
           syntax-highlighting history-substring-search completion git-info \
           prompt autosuggestions)
 

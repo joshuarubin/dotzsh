@@ -27,7 +27,6 @@
   zcompare ${zim_mods}/git/init.zsh
   zcompare ${zim_mods}/utility/init.zsh
   zcompare ${zim_mods}/pacman/init.zsh
-  zcompare ${zim_mods}/spectrum/init.zsh
   zcompare ${zim_mods}/completion/init.zsh
   zcompare ${zim_mods}/fasd/init.zsh
 
@@ -42,9 +41,6 @@
   done
 
   # syntax-highlighting
-  for file in ${zim_mods}/syntax-highlighting/external/highlighters/**/*.zsh; do
-    zcompare ${file}
-  done
   zcompare ${zim_mods}/syntax-highlighting/external/zsh-syntax-highlighting.zsh
 
   # zsh-histery-substring-search
