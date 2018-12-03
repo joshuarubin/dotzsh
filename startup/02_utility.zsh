@@ -28,7 +28,6 @@ alias rsync='noglob rsync'
 # Define general aliases.
 #alias sudo='sudo '
 alias _='sudo '
-alias b='${(z)BROWSER}'
 alias cp="${aliases[cp]:-cp} -i"
 
 # alias e='${(z)VISUAL:-${(z)EDITOR}}'

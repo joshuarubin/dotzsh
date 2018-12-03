@@ -1,1 +1,0 @@
-zcompare ${HOME}/.secrets

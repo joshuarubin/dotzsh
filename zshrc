@@ -1,5 +1,5 @@
 #
-# Executes commands at the start of an interactive session.
+# User configuration sourced by interactive shells
 #
 
 setopt EXTENDED_GLOB
@@ -9,25 +9,20 @@ fpath[1,0]=${ZSH}/functions
 for func in ${ZSH}/functions/*(-.N:t); do
   autoload -Uz ${func}
 done
+unset func
 
-zmodules=(archive directory environment git ssh history input \
-          syntax-highlighting history-substring-search completion pacman git-info \
-          prompt autosuggestions)
+# Define zim location
+export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 
-zhighlighters=(main brackets pattern cursor root line)
-
-zinput_mode=vi
-
-# Source zim
-if [[ -s ${ZDOTDIR:-${HOME}}/.zim/init.zsh ]]; then
-  source ${ZDOTDIR:-${HOME}}/.zim/init.zsh
-fi
+# Start zim
+[[ -s ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh
 
 autoload -Uz bashcompinit && bashcompinit
 
 for file in ${ZSH}/{completion,startup}/^(*.zwc)(-.N); do
   source ${file}
 done
+unset file
 
 # remove non-existent directories
 path=($^path(N))
@@ -39,5 +34,3 @@ path=(
   node_modules/.bin
   $path
 )
-
-autoload -Uz promptinit && promptinit

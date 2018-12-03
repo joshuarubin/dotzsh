@@ -1,8 +1,76 @@
+export ZSH=${HOME}/.dotfiles/zsh
+
 #
-# Defines environment variables.
+# Editors
 #
 
-# Ensure that a non-login, non-interactive shell has a defined environment.
-if [[ "$SHLVL" -eq 1 && ! -o LOGIN && -s "${ZDOTDIR:-$HOME}/.zprofile" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprofile"
+export PAGER='less'
+
+if (( $#commands[vim] )); then
+  export EDITOR="vim"
+  export VISUAL="vim"
 fi
+
+#
+# Language
+#
+
+if [[ -z "$LANG" ]]; then
+  export LANG='en_US.UTF-8'
+fi
+
+if [[ -z "$LC_ALL" ]]; then
+  export LC_ALL=$LANG
+fi
+
+#
+# Paths
+#
+
+# Ensure path arrays do not contain duplicates.
+typeset -gU cdpath fpath path
+
+GOPATH=${HOME}/go
+
+# Set the list of directories that Zsh searches for programs.
+path=(
+  ${GOPATH}/bin
+  ${HOME}/.yarn/bin
+  ${HOME}/.rbenv/bin
+  ${HOME}/.rbenv/shims
+  ${HOME}/.cargo/bin
+  ${HOME}/.cabal/bin
+  ${HOME}/.nodenv/bin
+  ${HOME}/.nodenv/shims
+  ${HOME}/.node-build/bin
+  ${HOME}/.local/bin
+  ${HOME}/bin
+  /usr/local/{bin,sbin}
+  $path
+)
+
+cdpath=(
+  .
+  ${HOME}
+  ${GOPATH}/src
+)
+
+#
+# Less
+#
+
+# Set the default Less options.
+# Mouse-wheel scrolling has been disabled by -X (disable screen clearing).
+# Remove -X and -F (exit if the content fits on one screen) to enable it.
+export LESS='-F -g -i -M -R -S -w -X -z-4'
+
+# Set the Less input preprocessor.
+# Try both `lesspipe` and `lesspipe.sh` as either might exist on a system.
+if (( $#commands[(i)lesspipe(|.sh)] )); then
+  export LESSOPEN="| /usr/bin/env $commands[(i)lesspipe(|.sh)] %s 2>&-"
+fi
+
+# Treat these characters as part of a word.
+WORDCHARS='*?_-.[]~&;!#$%^(){}<>'
+
+PROMPT_LEAN_VIMODE=1
