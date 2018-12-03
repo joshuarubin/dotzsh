@@ -10,11 +10,13 @@ for func in ${ZSH}/functions/*(-.N:t); do
   autoload -Uz ${func}
 done
 
-zmodules=(directory environment git ssh history input \
-          syntax-highlighting history-substring-search completion git-info \
+zmodules=(archive directory environment git ssh history input \
+          syntax-highlighting history-substring-search completion pacman git-info \
           prompt autosuggestions)
 
 zhighlighters=(main brackets pattern cursor root line)
+
+zinput_mode=vi
 
 # Source zim
 if [[ -s ${ZDOTDIR:-${HOME}}/.zim/init.zsh ]]; then

@@ -29,9 +29,6 @@ else
   bindkey -M vicmd "/" history-incremental-search-forward
 fi
 
-# Set vim mode
-bindkey -v
-
 # Reduce time between insert and normal mode switching
 export KEYTIMEOUT=1
 
