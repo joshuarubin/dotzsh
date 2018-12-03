@@ -92,4 +92,4 @@ zhighlighters=(main brackets pattern cursor root line)
 #zpacman_frontend='powerpill'
 
 # Load any helper scripts as defined here
-#zpacman_helper=(aur)
+zpacman_helper=(aur)

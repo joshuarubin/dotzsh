@@ -7,7 +7,7 @@ function make {
     if (( $+commands[colormake] )); then
       colormake "$@"
     elif [ -n "$GRC" ]; then
-      colourify make "$@"
+      $GRC -es --colour=auto make "$@"
     else
       command make "$@"
     fi
