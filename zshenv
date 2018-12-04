@@ -45,6 +45,7 @@ path=(
   ${HOME}/.node-build/bin
   ${HOME}/.local/bin
   ${HOME}/bin
+  /snap/bin
   /usr/local/{bin,sbin}
   $path
 )
