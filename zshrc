@@ -5,6 +5,7 @@
 setopt EXTENDED_GLOB
 
 fpath[1,0]=${ZSH}/functions
+autoload -U compinit && compinit
 
 for func in ${ZSH}/functions/*(-.N:t); do
   autoload -Uz ${func}

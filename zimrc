@@ -75,7 +75,7 @@ zinput_mode='vi'
 #   https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/docs/highlighters.md
 # For (u)rxvt, termite and gnome-terminal users,
 # removing the 'cursor' highlighter will fix the disappearing cursor problem
-zhighlighters=(main brackets pattern cursor root line)
+zhighlighters=(main brackets pattern root line)
 
 #
 # SSH
