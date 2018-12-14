@@ -5,6 +5,7 @@
 setopt EXTENDED_GLOB
 
 fpath[1,0]=${ZSH}/functions
+autoload -U compinit && compinit
 
 for func in ${ZSH}/functions/*(-.N:t); do
   autoload -Uz ${func}
@@ -19,7 +20,7 @@ export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 
 autoload -Uz bashcompinit && bashcompinit
 
-for file in ${ZSH}/{completion,startup}/^(*.zwc)(-.N); do
+for file in ${ZSH}/{completion,startup}/^(*.zwc|*.zwc.old)(-.N); do
   source ${file}
 done
 unset file
