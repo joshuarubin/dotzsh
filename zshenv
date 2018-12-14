@@ -44,6 +44,9 @@ path=(
   ${HOME}/.nodenv/shims
   ${HOME}/.node-build/bin
   ${HOME}/.local/bin
+  ${HOME}/Library/Python/3.7/bin
+  ${HOME}/Library/Python/2.7/bin
+  ${HOME}/.gem/ruby/2.3.0/bin
   ${HOME}/bin
   /snap/bin
   /usr/local/{bin,sbin}
