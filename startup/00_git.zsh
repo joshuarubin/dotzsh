@@ -2,10 +2,8 @@ if (( $+commands[gitjk_cmd] )); then
   alias gitjk="history -n | tail -n 10 | (tac || tail -r) | gitjk_cmd"
 fi
 
-alias git='noglob git'
-
 if (( $+commands[hub] )); then
-  alias git='noglob hub'
+  alias git=hub
 fi
 
 _git_log_oneline_format='%C(green)%h%C(reset) %s%C(red)%d%C(reset)'

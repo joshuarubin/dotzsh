@@ -2,7 +2,7 @@
 # User configuration sourced by interactive shells
 #
 
-setopt EXTENDED_GLOB
+setopt EXTENDED_GLOB NO_NOMATCH
 
 fpath[1,0]=${ZSH}/functions
 autoload -U compinit && compinit
