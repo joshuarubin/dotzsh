@@ -135,15 +135,19 @@ elif [[ "$OSTYPE" == cygwin* ]]; then
   alias o='cygstart'
   alias pbcopy='tee > /dev/clipboard'
   alias pbpaste='cat /dev/clipboard'
-elif (( $+commands[xclip] )); then
+elif [[ -n "$WAYLAND_DISPLAY" && $+commands[wl-copy] && $+commands[wl-paste] ]]; then
+  alias o='xdg-open'
+  alias pbcopy='wl-copy'
+  alias pbpaste='wl-paste --no-newline'
+elif [[ -n "$DISPLAY" && $+commands[xclip] ]]; then
   alias o='xdg-open'
   alias pbcopy='xclip -selection clipboard -in'
   alias pbpaste='xclip -selection clipboard -out'
-elif (( $+commands[xsel] )); then
+elif [[ -n "$DISPLAY" && $+commands[xsel] ]]; then
   alias o='xdg-open'
   alias pbcopy='xsel --clipboard --input'
   alias pbpaste='xsel --clipboard --output'
-elif (( $+commands[lemonade] )); then
+elif [[ $+commands[lemonade] ]]; then
   alias o='lemonade open'
   alias pbcopy='lemonade copy'
   alias pbpaste='lemonade paste'
