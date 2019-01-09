@@ -30,11 +30,9 @@ fi
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath path
 
-GOPATH=${HOME}/go
-
 # Set the list of directories that Zsh searches for programs.
 path=(
-  ${GOPATH}/bin
+  $(go env GOPATH)/bin
   ${HOME}/.yarn/bin
   ${HOME}/.rbenv/bin
   ${HOME}/.rbenv/shims
@@ -58,7 +56,7 @@ path=(
 cdpath=(
   .
   ${HOME}
-  ${GOPATH}/src
+  $(go env GOPATH)/src
 )
 
 #
