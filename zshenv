@@ -32,7 +32,7 @@ typeset -gU cdpath fpath path
 
 # Set the list of directories that Zsh searches for programs.
 path=(
-  $(go env GOPATH)/bin
+  ${HOME}/go/bin
   ${HOME}/.yarn/bin
   ${HOME}/.rbenv/bin
   ${HOME}/.rbenv/shims
