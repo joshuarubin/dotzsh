@@ -126,11 +126,12 @@ alias c='clear'
 alias cdc='cd && clear'
 alias screen="screen -T ${TERM}"
 alias json='python -mjson.tool'
+alias tmux='tmux -f ~/.tmux/not-tmate.conf'
 
 if [[ "$OSTYPE" == darwin* ]]; then
   alias o='open'
   alias listeners='lsof -nPiTCP | grep LISTEN'
-  alias tmux='tmux -f ~/.tmux-osx.conf'
+  alias tmux='tmux -f ~/.tmux/osx.conf'
 elif [[ "$OSTYPE" == cygwin* ]]; then
   alias o='cygstart'
   alias pbcopy='tee > /dev/clipboard'
